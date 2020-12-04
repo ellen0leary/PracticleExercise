@@ -49,6 +49,15 @@ public class ListActivity {
         return activities.get(index);
     }
 
+    public String search(String str){
+        String results = "";
+        for(int i=0; i<activities.size(); i++){
+            if(activities.get(i).toString().toLowerCase().contains(str.toLowerCase())){
+                results += i+ " - " + activities.get(i).toString();
+            }
+        }
+        return results;
+    }
     public String toString(){
         return listName + " - Activities in list - " + activities.size();
     }

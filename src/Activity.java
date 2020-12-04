@@ -1,9 +1,19 @@
+/**
+ * @Author Ellen O Leary
+ * Contain the base class for Activity
+ */
 public class Activity {
     private String name;
     private String description;
     private String tag;
 
 
+    /**
+     * 
+     * @param name
+     * @param description
+     * @param tag
+     */
     public Activity(String name, String description, String tag) {
         this.name = name;
         this.description = description;

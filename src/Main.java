@@ -10,7 +10,7 @@ public class Main {
         while (x!=0){
             System.out.println("Main menu");
             System.out.println("------------");
-            System.out.println("Create ToDo list");
+            System.out.println("1. Create ToDo list");
             System.out.println("2. List ToDo Lists");
             System.out.println("3. Delete List");
             System.out.println("------------");
@@ -18,8 +18,9 @@ public class Main {
             System.out.println("5. List Activities");
             System.out.println("6. Update Activity");
             System.out.println("7. Delete Activity");
-            System.out.println("8. Choose an Activity");
             System.out.println("------------");
+            System.out.println("8. Choose an Activity");
+            System.out.println("9. Search through all Activites");
             System.out.println("0. Exit");
 
             x = read.nextInt();
@@ -49,6 +50,9 @@ public class Main {
                 case 8:
                     shuffleActivities();
                     break;
+                case 9:
+                    search();
+                    break;
                 default:
                     System.out.println("Incorrect value entered. Try again");
             }
@@ -64,7 +68,7 @@ public class Main {
     }
     private static void listAllLists(){
         for(int i=0; i<allLists.size(); i++){
-            System.out.println(i + " " + allLists.toString());
+            System.out.println(i + " " + allLists.get(i).toString());
         }
     }
 
@@ -165,6 +169,20 @@ public class Main {
             System.out.println(allLists.get(i).retrive(0).toString());
         }
 
+    }
+
+    public static void search(){
+        String results = "";
+        if (checkAllLists()) {
+            read.nextLine();
+            System.out.println("Enter a search term");
+            String str = read.nextLine();
+
+            for(int i=0 ;i<allLists.size(); i++){
+                results += i +"\n" + allLists.get(i).search(str);
+            }
+        }
+        System.out.println(results);
     }
 
     private static boolean checkAllLists(){
