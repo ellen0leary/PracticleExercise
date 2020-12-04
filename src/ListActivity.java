@@ -13,10 +13,12 @@ public class ListActivity {
         activities.add(new Activity(name, description, tag));
     }
 
-    public void listActivities(){
+    public String listActivities(){
+        String str = "";
         for(int i =0; i<activities.size(); i++){
-            System.out.println(activities.get(i).toString());
+            str += activities.get(i).toString()+ "\n";
         }
+        return str;
     }
 
     public void updateActivity(int index){

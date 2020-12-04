@@ -7,9 +7,9 @@ public class Main {
     //list interface
     //list of list interface
     public static ArrayList<ListActivity> allLists = new ArrayList<ListActivity>();
+    private static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args){
-        Scanner read = new Scanner(System.in);
         allLists.add(new ListActivity("Currently"));
         int x=1;
         while (x!=0){
@@ -49,15 +49,38 @@ public class Main {
 
     private static void listActivities() {
         listAllLists();
+        System.out.println("Choose list to see to");
+        int i = read.nextInt();
+        System.out.print(allLists.get(i).listActivities());
     }
 
     private static void addActivity() {
         listAllLists();
+        System.out.println("Choose list to add to");
+        int i = read.nextInt();
+
+        System.out.print(allLists.get(i).listActivities());
+        System.out.println("--------");
+        read.nextLine();
+        System.out.print("\nEnter name of activity : ");
+        String name = read.nextLine();
+
+
+        System.out.print("\nEnter description of activity");
+        String description = read.nextLine();
+
+
+        System.out.print("\nEnter tag for activity");
+        String tag = read.nextLine();
+
+
+        allLists.get(i).addActivities(name, description, tag);
+        allLists.get(i).listActivities();
     }
 
     private static void listAllLists(){
         for(int i=0; i<allLists.size(); i++){
-            System.out.println(allLists.toString());
+            System.out.println(i + " " + allLists.toString());
         }
     }
 }
