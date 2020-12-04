@@ -1,10 +1,19 @@
+/**
+ * @Author Ellen O Leary
+ * The main class for this application
+ */
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
-    public static ArrayList<ListActivity> allLists = new ArrayList<ListActivity>();
-    private static Scanner read = new Scanner(System.in);
 
+public class Main {
+    public static ArrayList<ListActivity> allLists = new ArrayList<ListActivity>(); //array list for all to do lists
+    private static Scanner read = new Scanner(System.in); //creates a scanner that reads input
+
+    /**
+     * the main method - contains the main menu and switch statment
+     * @param args
+     */
     public static void main(String[] args){
         int x=1;
         while (x!=0){
@@ -59,6 +68,9 @@ public class Main {
         }
     }
 
+    /**
+     * case 1 - alloiw the user to create a new list
+     */
     private static void createList(){
         read.nextLine();
         System.out.println("Enter list name");
@@ -66,12 +78,19 @@ public class Main {
 
         allLists.add(new ListActivity(name));
     }
+
+    /**
+     * case 2 - prints all to do list to console
+     */
     private static void listAllLists(){
         for(int i=0; i<allLists.size(); i++){
             System.out.println(i + " " + allLists.get(i).toString());
         }
     }
 
+    /**
+     * case 3 - delete a to do list
+     */
     private static void deleteList(){
         listAllLists();
         System.out.println("Choose list to delete");
@@ -84,6 +103,10 @@ public class Main {
         }
 
     }
+
+    /**
+     * case 4 - adds an activity to a to do list
+     */
     private static void addActivity() {
         if(checkAllLists()) {
             listAllLists();
@@ -110,6 +133,9 @@ public class Main {
         }
     }
 
+    /**
+     * case 5 - lists all activities to console
+     */
     private static void listActivities() {
         if(checkAllLists()) {
             listAllLists();
@@ -119,6 +145,9 @@ public class Main {
         }
     }
 
+    /**
+     * case 6 - updates an activity based on user inputs
+     */
     private static void updateActivity() {
         if(checkAllLists()) {
             listAllLists();
@@ -144,7 +173,9 @@ public class Main {
         }
     }
 
-
+    /**
+     * case 7 - deletes the activity in a to do list
+     */
     private static void deleteActivity() {
         if(checkAllLists()) {
             listAllLists();
@@ -158,6 +189,9 @@ public class Main {
         }
     }
 
+    /**
+     * case 8 - shuffle the activities in a to do list and return the first one in the list
+     */
     private static void shuffleActivities() {
         if (checkAllLists()) {
             listAllLists();
@@ -171,6 +205,9 @@ public class Main {
 
     }
 
+    /**
+     * case 9 - search through all activities and to do list for a specific item
+     */
     public static void search(){
         String results = "";
         if (checkAllLists()) {
@@ -185,6 +222,10 @@ public class Main {
         System.out.println(results);
     }
 
+    /**
+     * checks if the is a to do list in allList
+     * @return truye if the is a list in allList otherwise false
+     */
     private static boolean checkAllLists(){
         if(allLists.size() == 0){
             System.out.println("Add ToDo list first");
