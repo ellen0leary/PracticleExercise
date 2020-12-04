@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
-public class List {
+public class ListActivity {
     private ArrayList<Activity> activities = new ArrayList<Activity>(); //list of activities in a list
     private String listName;
 
 
-    public List(String listName) {
+    public ListActivity(String listName) {
         this.listName = listName;
     }
 
@@ -33,6 +33,6 @@ public class List {
     }
 
     public String toString(){
-        return "";
+        return listName + " - Activities in list - " + activities.size();
     }
 }

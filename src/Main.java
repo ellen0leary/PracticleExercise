@@ -6,10 +6,11 @@ public class Main {
     //lists class
     //list interface
     //list of list interface
-    public ArrayList<List> allLists = new ArrayList<List>();
+    public static ArrayList<ListActivity> allLists = new ArrayList<ListActivity>();
 
     public static void main(String[] args){
         Scanner read = new Scanner(System.in);
+        allLists.add(new ListActivity("Currently"));
         int x=1;
         while (x!=0){
             System.out.println("Main menu");
@@ -21,7 +22,7 @@ public class Main {
 
             x = read.nextInt();
 
-            switch(0){
+            switch(x){
                 case 1:
                     addActivity();
                     break;
@@ -33,22 +34,30 @@ public class Main {
                     break;
                 case 4:
                     deleteActivity();
+                    break;
             }
         }
     }
 
     private static void deleteActivity() {
-        
+        listAllLists();
     }
 
     private static void updateActivity() {
+        listAllLists();
     }
 
     private static void listActivities() {
-
+        listAllLists();
     }
 
     private static void addActivity() {
+        listAllLists();
     }
 
+    private static void listAllLists(){
+        for(int i=0; i<allLists.size(); i++){
+            System.out.println(allLists.toString());
+        }
+    }
 }
