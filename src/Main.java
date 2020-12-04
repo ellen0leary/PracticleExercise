@@ -19,6 +19,7 @@ public class Main {
             System.out.println("2. List Activities");
             System.out.println("3. Update Activity");
             System.out.println("4. Delete Activity");
+            System.out.println("5. Choose an Activity");
             System.out.println("0. Exit");
 
             x = read.nextInt();
@@ -36,10 +37,24 @@ public class Main {
                 case 4:
                     deleteActivity();
                     break;
+                case 5:
+                    shuffleActivities();
+                    break;
                 default:
                     System.out.println("Incorrect value entered. Try again");
             }
         }
+    }
+
+    private static void shuffleActivities() {
+        listAllLists();
+        System.out.println("Choose list to shuffle to");
+        int i = read.nextInt();
+        System.out.println("Shuffling list");
+        allLists.get(i).shuffle();
+        System.out.println("Start with:");
+        System.out.println(allLists.get(i).retrive(0).toString());
+
     }
 
     private static void deleteActivity() {

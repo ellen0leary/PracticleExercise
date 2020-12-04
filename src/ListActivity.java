@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Random;
 
 public class ListActivity {
     private ArrayList<Activity> activities = new ArrayList<Activity>(); //list of activities in a list
@@ -36,6 +39,14 @@ public class ListActivity {
         }else {
             return false;
         }
+    }
+
+    public void shuffle(){
+        Collections.shuffle(activities);
+    }
+
+    public Activity retrive(int index){
+        return activities.get(index);
     }
 
     public String toString(){
