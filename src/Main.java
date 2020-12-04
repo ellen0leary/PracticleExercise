@@ -14,6 +14,7 @@ public class Main {
         int x=1;
         while (x!=0){
             System.out.println("Main menu");
+            System.out.println("------------");
             System.out.println("1. Add Activity");
             System.out.println("2. List Activities");
             System.out.println("3. Update Activity");
@@ -35,16 +36,44 @@ public class Main {
                 case 4:
                     deleteActivity();
                     break;
+                default:
+                    System.out.println("Incorrect value entered. Try again");
             }
         }
     }
 
     private static void deleteActivity() {
         listAllLists();
+        System.out.println("Choose list to see to");
+        int i = read.nextInt();
+        System.out.print(allLists.get(i).listActivities());
+        System.out.println("Choose an activity to delete");
+        int j = read.nextInt();
+        if(allLists.get(i).deleteActivity(j)) System.out.println("Activity deleted");
+        else System.out.println("activity not deleted");
     }
 
     private static void updateActivity() {
         listAllLists();
+        System.out.println("Choose list to see to");
+        int i = read.nextInt();
+        System.out.print(allLists.get(i).listActivities());
+
+        System.out.println("Choose an activity to update");
+        int j = read.nextInt();
+
+        read.nextLine();
+
+        System.out.println("Enter the new name");
+        String name = read.nextLine();
+
+        System.out.println("Enter the new description");
+        String description = read.nextLine();
+
+        System.out.println("Enter the new tag");
+        String tag = read.nextLine();
+
+        allLists.get(i).updateActivity(j, name, description, tag);
     }
 
     private static void listActivities() {
@@ -66,11 +95,11 @@ public class Main {
         String name = read.nextLine();
 
 
-        System.out.print("\nEnter description of activity");
+        System.out.print("\nEnter description of activity : ");
         String description = read.nextLine();
 
 
-        System.out.print("\nEnter tag for activity");
+        System.out.print("\nEnter tag for activity : ");
         String tag = read.nextLine();
 
 

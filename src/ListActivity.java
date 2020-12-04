@@ -16,13 +16,17 @@ public class ListActivity {
     public String listActivities(){
         String str = "";
         for(int i =0; i<activities.size(); i++){
-            str += activities.get(i).toString()+ "\n";
+            str +=  i + " - " +  activities.get(i).toString()+ "\n";
         }
         return str;
     }
 
-    public void updateActivity(int index){
-        System.out.println(activities.get(index).toString());
+    public void updateActivity(int index, String name, String description, String tag){
+       // System.out.println(activities.get(index).toString());
+        Activity update = activities.get(index);
+        if(name.length() > 0) update.setName(name);
+        if(description.length()> 0) update.setDescription(description);
+        if(tag.length() > 0) update.setTag(tag);
     }
 
     public boolean deleteActivity(int index){
